@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>All Registrations</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>All Registrations</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Event Registrations</h2>
+    <ul>
+      <% eventRegs.forEach(r => { %>
+        <li><strong><%= r.name %></strong> - <%= r.email %> — "<%= r.event %>"</li>
+      <% }) %>
+    </ul>
+
+    <h2>Course Registrations</h2>
+    <ul>
+      <% courseRegs.forEach(r => { %>
+        <li><strong><%= r.name %></strong> - <%= r.email %> — "<%= r.course %>"</li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>

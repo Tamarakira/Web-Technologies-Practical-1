@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Learning Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Online Learning Platform</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/courses">Courses</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/events">Events</a>
+      <a href="/faq">FAQ</a>
+      <a href="/quiz">Quiz</a>
+      <a href="/contact">Contact</a>
+
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Boost Your Career with Practical Tech Skills</h2>
+    <p>Learn online from industry experts. Join flexible, instructor-led programs that fit your schedule.</p>
+    <a href="/courses" class="btn">Explore Courses</a>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We offer certified training in areas like Data Analysis, Cybersecurity, Programming, and Web Development. All courses are supported by live sessions, expert instructors, and career coaching.</p>
+  </section>
+
+ <section class="choose-path">
+  <h3>Choose Your Path</h3>
+  <form onsubmit="goToCourse(); return false;">
+    <select id="path-select" required>
+      <option value="">-- Select a Track --</option>
+      <option value="networks">Networks and Security</option>
+      <option value="data">Data Analysis</option>
+      <option value="web">Web Development</option>
+      <option value="programming">Problem Solving</option>
+    </select>
+    <button type="submit" class="btn">Let's Go</button>
+  </form>
+</section>
+</main>
+
+<script>
+  function goToCourse() {
+    const value = document.getElementById('path-select').value;
+    if (value) {
+      window.location.href = `/courses#${value}`;
+    }
+  }
+</script>
+

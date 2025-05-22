@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/courses">Courses</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/events">Events</a>
+      <a href="/faq">FAQ</a>
+      <a href="/quiz">Quiz</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="faq-intro">
+    <h2>Common Questions</h2> 
+    <p>Have questions? We've got answers. Here are the most common things students ask us.</p>
+  </section>
+
+  <section class="faq-list">
+    <% const faqs = [
+      { q: 'How do I enroll in a course?', a: 'Go to the Courses page and click on the one you want to join. Then follow the enrollment steps.' },
+      { q: 'Are live sessions recorded?', a: 'Yes! Every live session is recorded and made available to enrolled students within 24 hours.' },
+      { q: 'Do I get a certificate?', a: 'Yes. After successful course completion, you receive a digital certificate.' },
+      { q: 'Can I get support outside sessions?', a: 'Absolutely. You can message instructors or post in the student forum any time.' },
+      { q: 'How long do I have access to materials?', a: 'Course materials remain available for 6 months after your completion date.' },
+      { q: 'Do I need prior experience?', a: 'Most courses are beginner-friendly. Check the course description for details.' }
+    ]; %>
+
+    <% faqs.forEach(function(faq) { %>
+      <div class="faq-item">
+        <h3><%= faq.q %></h3>
+        <p><%= faq.a %></p>
+      </div>
+    <% }); %>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Online Learning Platform. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

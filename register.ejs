@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Register for <%= nameToDisplay %></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/courses">Courses</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/events">Events</a>
+      <a href="/faq">FAQ</a>
+      <a href="/quiz">Quiz</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <form action="/register" method="POST" class="form-card">
+    <input type="hidden" name="event" value="<%= eventName || '' %>">
+    <input type="hidden" name="course" value="<%= courseName || '' %>">
+
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+
+    <button type="submit" class="btn">Submit Registration</button>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2025 Online Learning Platform. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

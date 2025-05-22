@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .course-search {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .search-input {
+      padding: 0.7rem;
+      width: 60%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .course-card h3 {
+      color: #1f3f5b;
+    }
+
+    .course-card a.btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #1f3f5b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .course-card a.btn:hover {
+      background-color: #3e5d77;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Explore Our Courses</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/courses">Courses</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/events">Events</a>
+      <a href="/faq">FAQ</a>
+      <a href="/quiz">Quiz</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="course-search">
+    <h2>Search Courses</h2>
+    <input type="text" id="course-search" placeholder="Start typing to search..." class="search-input" />
+  </section>
+
+  <section class="courses-grid" id="courses-list">
+    <div class="course-card">
+      <h3>Networks and Security</h3>
+      <p>Learn about network infrastructure, cybersecurity fundamentals, and system protection.</p>
+      <p><strong>Instructor:</strong> Daniel Green</p>
+      <p><strong>Duration:</strong> 10 Weeks</p>
+      <a href="/register?course=Networks%20and%20Security" class="btn">Register</a>
+    </div>
+
+    <div class="course-card">
+      <h3>Data Analysis</h3>
+      <p>Master data analysis, visualization, and interpretation to support smart decision-making.</p>
+      <p><strong>Instructor:</strong> Anna Kowalska</p>
+      <p><strong>Duration:</strong> 8 Weeks</p>
+      <a href="/register?course=Data%20Analysis" class="btn">Register</a>
+    </div>
+
+    <div class="course-card">
+      <h3>Web Development Basics</h3>
+      <p>Build responsive websites using HTML5, CSS3, JavaScript, and frameworks.</p>
+      <p><strong>Instructor:</strong> Raul Hodis</p>
+      <p><strong>Duration:</strong> 10 Weeks</p>
+      <a href="/register?course=Web%20Development%20Basics" class="btn">Register</a>
+    </div>
+
+    <div class="course-card">
+      <h3>Problem Solving with Programming</h3>
+      <p>Develop logical thinking and algorithms through hands-on programming challenges.</p>
+      <p><strong>Instructor:</strong> Karl Cooper</p>
+      <p><strong>Duration:</strong> 12 Weeks</p>
+      <a href="/register?course=Problem%20Solving%20with%20Programming" class="btn">Register</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Online Learning Platform. All rights reserved.</p>
+</footer>
+
+<script>
+  const searchInput = document.getElementById('course-search');
+  const courseCards = document.querySelectorAll('.course-card');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    courseCards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(query) ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Interactive Quiz</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/courses">Courses</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/events">Events</a>
+      <a href="/faq">FAQ</a>
+      <a href="/quiz">Quiz</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="quiz-box">
+    <h2>Test Your Web Knowledge</h2>
+
+    <form id="quiz-form" onsubmit="submitQuiz(event)">
+      <div class="quiz-question">
+        <p><strong>1. What does HTML stand for?</strong></p>
+        <label><input type="radio" name="q1" value="a" required> Hyperlinks and Text Markup Language</label><br>
+        <label><input type="radio" name="q1" value="b"> Hyper Text Markup Language</label><br>
+        <label><input type="radio" name="q1" value="c"> Home Tool Markup Language</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>2. Which language is used for styling web pages?</strong></p>
+        <label><input type="radio" name="q2" value="a" required> HTML</label><br>
+        <label><input type="radio" name="q2" value="b"> CSS</label><br>
+        <label><input type="radio" name="q2" value="c"> Python</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>3. What does SQL stand for?</strong></p>
+        <label><input type="radio" name="q3" value="a" required> Stylish Question Language</label><br>
+        <label><input type="radio" name="q3" value="b"> Structured Query Language</label><br>
+        <label><input type="radio" name="q3" value="c"> Statement Query Language</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>4. Which language runs in a web browser?</strong></p>
+        <label><input type="radio" name="q4" value="a" required> Java</label><br>
+        <label><input type="radio" name="q4" value="b"> Python</label><br>
+        <label><input type="radio" name="q4" value="c"> JavaScript</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>5. What does CSS stand for?</strong></p>
+        <label><input type="radio" name="q5" value="a" required> Creative Style Sheets</label><br>
+        <label><input type="radio" name="q5" value="b"> Cascading Style Sheets</label><br>
+        <label><input type="radio" name="q5" value="c"> Colorful Style Syntax</label>
+      </div>
+
+      <div class="quiz-question">
+        <p><strong>6. What is the correct HTML element for inserting a line break?</strong></p>
+        <label><input type="radio" name="q6" value="a" required> &lt;br&gt;</label><br>
+        <label><input type="radio" name="q6" value="b"> &lt;lb&gt;</label><br>
+        <label><input type="radio" name="q6" value="c"> &lt;break&gt;</label>
+      </div>
+
+      <button type="submit" class="btn">Submit Quiz</button>
+    </form>
+
+    <div id="quiz-result" class="quiz-result"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Online Learning Platform. All rights reserved.</p>
+</footer>
+
+<script>
+  function submitQuiz(e) {
+    e.preventDefault();
+
+    const answers = {
+      q1: 'b',
+      q2: 'b',
+      q3: 'b',
+      q4: 'c',
+      q5: 'b',
+      q6: 'a'
+    };
+
+    let score = 0;
+    for (const [question, correctAnswer] of Object.entries(answers)) {
+      const selected = document.querySelector(`input[name="${question}"]:checked`);
+      if (selected && selected.value === correctAnswer) {
+        score++;
+      }
+    }
+
+    const result = document.getElementById('quiz-result');
+    result.innerHTML = `<p>You got ${score} out of ${Object.keys(answers).length} correct!</p>`;
+  }
+</script>
+
+</body>
+</html>
